@@ -21,3 +21,10 @@ class ProductPage(BasePage):
         self.browser.find_element(*GoodAddLocator.should_be_alert_price_good(GoodAddLocator)).text, \
                                   "The good price is not correct in alert"
 
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*GoodAddLocator.should_be_alert_price_good(GoodAddLocator)), \
+            "Success message is presented, but should not be"
+
+    # def should_not_to_be_success_message(self):
+    #
+
