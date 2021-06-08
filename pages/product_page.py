@@ -5,12 +5,12 @@ import pytest
 
 class ProductPage(BasePage):
     def add_to_basket(self):
-        adding = self.browser.find_element(*MainPageLocator.ADD_BUTTON)
+        adding = self.browser.find_element(*MainPageLocator.BUTTON_TO_ADD)
         adding.click()
         self.solve_quiz_and_get_code()
 
     def should_be_add_butter(self):
-        assert self.is_element_present(*MainPageLocator.ADD_BUTTON), "The button 'Add to Basket' is not here"
+        assert self.is_element_present(*MainPageLocator.BUTTON_TO_ADD), "The button 'Add to Basket' is not here"
 
     def should_be_alert_adding_good(self):
         assert self.browser.find_element(*GoodAddLocator.NAME_GOOD).text == \

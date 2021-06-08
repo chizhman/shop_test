@@ -1,8 +1,10 @@
 from selenium.webdriver.common.by import By
 
 class MainPageLocator():
-    ADD_BUTTON = (By.CSS_SELECTOR, "button[value='Add to basket']")
+    BUTTON_TO_ADD = (By.CSS_SELECTOR, "button[value='Add to basket']")
+    LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     SWITCH_TO_BASKET = (By.CSS_SELECTOR, ".basket-mini a.btn.btn-default")
+
 
 class GoodAddLocator():
     NAME_GOOD = (By.CSS_SELECTOR, ".product_main h1")
@@ -19,7 +21,7 @@ class BasePageLocators():
 
 class BasketPageLocators():
     PRODUCT_IS_IN_BASKET = (By.CSS_SELECTOR, ".basket_summary .basket-items")
-    TEXT_EMPTY_BASKET = (By.CSS_SELECTOR, "")
+    TEXT_EMPTY_BASKET = (By.CSS_SELECTOR, ".content p")
 
 
 class LoginPage():
