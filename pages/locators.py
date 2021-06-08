@@ -1,10 +1,11 @@
-from .base_page import BasePage
+# from .base_page import BasePage
 from selenium.webdriver.common.by import By
 
-class MainPageLocator(BasePage):
+class MainPageLocator():
     ADD_BUTTON = (By.CSS_SELECTOR, "button[value='Add to basket']")
+    SWITCH_TO_BASKET = (By.CSS_SELECTOR, ".basket-mini a.btn.btn-default")
 
-class GoodAddLocator(BasePage):
+class GoodAddLocator():
     def should_be_right_alert_name_good(self):
         self.name_good()
         self.alert_name_good()
@@ -30,3 +31,11 @@ class GoodAddLocator(BasePage):
         return ALERT_PRICE_GOOD
 
 
+class BasePageLocators():
+    LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
+    LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
+
+
+class BasketPageLocators():
+    PRODUCT_IS_IN_BASKET = (By.CSS_SELECTOR, ".basket_summary .basket-items")
+    TEXT_EMPTY_BASKET = (By.CSS_SELECTOR, "")

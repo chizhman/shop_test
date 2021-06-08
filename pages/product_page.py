@@ -28,16 +28,16 @@ class ProductPage(BasePage):
 
     # def should_be_another_link(self):
     #
-    def test_guest_cant_see_success_message_after_adding_product_to_basket(self):
+    def guest_cant_see_success_message_after_adding_product_to_basket(self):
         pytest.xfail()
         assert self.is_not_element_present(*GoodAddLocator.should_be_alert_name_good(GoodAddLocator)), \
             "Success message is on the page after adding"
 
-    def test_guest_cant_see_success_message(self):
+    def guest_cant_see_success_message(self):
         assert self.is_not_element_present(*GoodAddLocator.should_be_alert_price_good(GoodAddLocator)), \
             "Success message is on the initial page, not good"
 
-    def test_message_disappeared_after_adding_product_to_basket(self):
+    def message_disappeared_after_adding_product_to_basket(self):
         pytest.xfail()
         assert self.is_disappeared(*GoodAddLocator.should_be_alert_price_good(GoodAddLocator)), \
                       "Success message is not disappearing after adding product in the basket"
