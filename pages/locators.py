@@ -1,4 +1,3 @@
-# from .base_page import BasePage
 from selenium.webdriver.common.by import By
 
 class MainPageLocator():
@@ -6,36 +5,26 @@ class MainPageLocator():
     SWITCH_TO_BASKET = (By.CSS_SELECTOR, ".basket-mini a.btn.btn-default")
 
 class GoodAddLocator():
-    def should_be_right_alert_name_good(self):
-        self.name_good()
-        self.alert_name_good()
-
-    def should_be_right_alert_price_good(self):
-        self.price_good()
-        self.alert_price_good()
-
-    def should_be_name_good(self):
-        NAME_GOOD = (By.CSS_SELECTOR, ".product_main h1")
-        return NAME_GOOD
-
-    def should_be_alert_name_good(self):
-        ALERT_NAME_GOOD = (By.CSS_SELECTOR, ".alert-safe:nth-child(1) strong ")
-        return ALERT_NAME_GOOD
-
-    def should_be_price_good(self):
-        PRICE_GOOD = (By.CSS_SELECTOR, ".product_main > .price_color")
-        return PRICE_GOOD
-
-    def should_be_alert_price_good(self):
-        ALERT_PRICE_GOOD = (By.CSS_SELECTOR, ".alert-safe:nth-child(3) strong ")
-        return ALERT_PRICE_GOOD
+    NAME_GOOD = (By.CSS_SELECTOR, ".product_main h1")
+    ALERT_NAME_GOOD = (By.CSS_SELECTOR, ".alert-safe:nth-child(1) strong ")
+    PRICE_GOOD = (By.CSS_SELECTOR, ".product_main > .price_color")
+    ALERT_PRICE_GOOD = (By.CSS_SELECTOR, ".alert-safe:nth-child(3) strong ")
 
 
 class BasePageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
+    USER_ICON = (By.CSS_SELECTOR, ".icon-user")
 
 
 class BasketPageLocators():
     PRODUCT_IS_IN_BASKET = (By.CSS_SELECTOR, ".basket_summary .basket-items")
     TEXT_EMPTY_BASKET = (By.CSS_SELECTOR, "")
+
+
+class LoginPage():
+    LOGIN_FORM = (By.CSS_SELECTOR, "#login_form")
+    REGISTER_FORM = (By.CSS_SELECTOR, "#register_form")
+    EMAIL_FORM = (By.CSS_SELECTOR, "#id_registration-email")
+    PASS_FORM = (By.CSS_SELECTOR, "#id_registration-password1")
+    CONF_PASS_FORM = (By.CSS_SELECTOR, "#id_registration-password2")
