@@ -26,8 +26,6 @@ class ProductPage(BasePage):
         assert self.is_not_element_present(*GoodAddLocator.ALERT_PRICE_GOOD), \
             "Success message is presented, but should not be"
 
-    # def should_be_another_link(self):
-    #
     def guest_cant_see_success_message_after_adding_product_to_basket(self):
         pytest.xfail()
         assert self.is_not_element_present(*GoodAddLocator.ALERT_NAME_GOOD), \

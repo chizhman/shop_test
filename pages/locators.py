@@ -3,7 +3,6 @@ from selenium.webdriver.common.by import By
 
 class MainPageLocator():
     BUTTON_TO_ADD = (By.CSS_SELECTOR, "button[value='Add to basket']")
-    LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     SWITCH_TO_BASKET = (By.CSS_SELECTOR, ".basket-mini a.btn.btn-default")
 
 
