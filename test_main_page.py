@@ -11,9 +11,7 @@ class TestLoginFromMainPage():
         link = "http://selenium1py.pythonanywhere.com/"
         page = BasePage(browser, link)
         page.open()
-        print('open')
         page.go_to_login_page()
-        print('switch to the login page')
         login = LoginPage(browser, browser.current_url)
         login.should_be_login_page()
 
