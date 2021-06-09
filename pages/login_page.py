@@ -1,6 +1,5 @@
-from selenium import webdriver
 from .base_page import BasePage
-from .locators import *MainPageLocator
+from .locators import MainPageLocator, LoginPageLocator
 
 
 class LoginPage(BasePage):
@@ -14,17 +13,19 @@ class LoginPage(BasePage):
         assert True
 
     def should_be_login_form(self):
-        assert self.is_element_present(*LoginPage.LOGIN_FORM), "There is no login form on this page"
+        assert self.is_element_present(*LoginPageLocator.LOGIN_FORM), "There is no login form on this page"
         assert True
 
     def should_be_register_form(self):
-        assert self.is_element_present(*LoginPage.REGISTER_FORM), "There is no register form on this page"
+        assert self.is_element_present(*LoginPageLocator.REGISTER_FORM), "There is no register form on this page"
         assert True
 
     def register_new_user(self, email, password):
-        email_form = self.login.find_element(*LoginPage.EMAIL_FORM)
-        email_form.sendKeys(f"{email}")
-        password_form = self.login.find_element(*LoginPage.PASS_FORM)
-        password_form.sendKeys(f"{password}")
-        confirmation_pass_form = self.login.find_element(*LoginPage.CONF_PASS_FORM)
-        confirmation_pass_form.sendKeys(f"{password}")
+        email_form = self.browser.find_element(*LoginPageLocator.EMAIL_FORM)
+        email_form.send_keys(f"{email}")
+        password_form = self.browser.find_element(*LoginPageLocator.PASS_FORM)
+        password_form.send_keys(f"{password}")
+        confirmation_pass_form = self.browser.find_element(*LoginPageLocator.CONF_PASS_FORM)
+        confirmation_pass_form.send_keys(f"{password}")
+        button = self.browser.find_element(*LoginPageLocator.REGISTRATION_BUTTON)
+        button.click()

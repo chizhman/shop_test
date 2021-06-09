@@ -1,5 +1,5 @@
 from .base_page import BasePage
-from .locators import MainPageLocator, GoodAddLocator
+from .locators import MainPageLocator, GoodAddLocator, BasePageLocators
 import pytest
 
 
@@ -41,3 +41,7 @@ class ProductPage(BasePage):
         pytest.xfail()
         assert self.is_disappeared(*GoodAddLocator.ALERT_PRICE_GOOD), \
                       "Success message is not disappearing after adding product in the basket"
+
+    def go_to_login_page(self):
+        link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
+        link.click()

@@ -1,5 +1,6 @@
 from selenium.webdriver.common.by import By
 
+
 class MainPageLocator():
     BUTTON_TO_ADD = (By.CSS_SELECTOR, "button[value='Add to basket']")
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
@@ -24,9 +25,10 @@ class BasketPageLocators():
     TEXT_EMPTY_BASKET = (By.CSS_SELECTOR, ".content p")
 
 
-class LoginPage():
+class LoginPageLocator():
     LOGIN_FORM = (By.CSS_SELECTOR, "#login_form")
     REGISTER_FORM = (By.CSS_SELECTOR, "#register_form")
     EMAIL_FORM = (By.CSS_SELECTOR, "#id_registration-email")
     PASS_FORM = (By.CSS_SELECTOR, "#id_registration-password1")
     CONF_PASS_FORM = (By.CSS_SELECTOR, "#id_registration-password2")
+    REGISTRATION_BUTTON = (By.CSS_SELECTOR, "button[name='registration_submit']")

@@ -1,6 +1,6 @@
 from .pages.product_page import ProductPage
-from .pages.basket_page import BasketPage
 from .pages.login_page import LoginPage
+from .pages.basket_page import BasketPage
 import pytest
 import time
 import random
@@ -14,10 +14,8 @@ def test_guest_can_add_product_to_basket(browser, number):
     pages = ProductPage(browser, link)
     pages.open()
     pages.should_not_be_success_message()
-    # pages.should_be_another_link()
     pages.should_be_add_butter()
     pages.add_to_basket()
-    time.sleep(1)
     pages.should_be_alert_adding_good()
     pages.should_be_alert_basket_price()
 
@@ -31,7 +29,7 @@ def test_guest_should_see_login_link_on_product_page(browser):
 
 @pytest.mark.need_review
 def test_guest_can_go_to_login_page_from_product_page(browser):
-    link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"
+    link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer1"
     page = ProductPage(browser, link)
     page.open()
     page.go_to_login_page()
@@ -71,19 +69,20 @@ def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
     pages = ProductPage(browser, link)
     pages.open()
     pages.go_to_basket()
-    pages.should_not_be_products_in_the_basket()
+    basket = BasketPage(browser, browser.current_url)
+    basket.should_not_be_products_in_the_basket()
 
 
-class TestUserAddToBasketFromProductPage(ProductPage):
+class TestUserAddToBasketFromProductPage():
     @pytest.fixture(scope="function", autouse=True)
     def setup(self, browser):
         link = "http://selenium1py.pythonanywhere.com/en-gb/accounts/login/"
         email = str(time.time()) + "@fakemail.org"
-        password = random.randint(1950394, 9238492)
-        login = LoginPage(browser, link)
-        login.open()
-        login.register_new_user(email, password)
-        login.should_be_authorized_user()
+        password = random.randint(1952340394, 9238423492)
+        login_page = LoginPage(browser, link)
+        login_page.open()
+        login_page.register_new_user(email, password)
+        login_page.should_be_authorized_user()
 
     @pytest.mark.need_review
     def test_user_can_add_product_to_basket(self, browser):
@@ -91,10 +90,8 @@ class TestUserAddToBasketFromProductPage(ProductPage):
         pages = ProductPage(browser, link)
         pages.open()
         pages.should_not_be_success_message()
-        # pages.should_be_another_link()
         pages.should_be_add_butter()
         pages.add_to_basket()
-        time.sleep(1)
         pages.should_be_alert_adding_good()
         pages.should_be_alert_basket_price()
 
